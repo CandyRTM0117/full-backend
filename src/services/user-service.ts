@@ -22,6 +22,9 @@ export const getUser = async (id: string) => {
 };
 
 export const registerUser = async (input: {
+  name: string;
+  surname: string;
+  country: string;
   email: string;
   password: string;
 }) => {

@@ -14,5 +14,7 @@ model User {
   id       String   @id @default(nanoid()) @map("_id")
   email    String   @unique
   name     String?
+  surname  String?
   password String
+  country  String?
 }

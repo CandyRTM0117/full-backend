@@ -22,9 +22,6 @@ export const getUser = async (id: string) => {
 };
 
 export const registerUser = async (input: {
-  name: string;
-  surname: string;
-  country: string;
   email: string;
   password: string;
 }) => {
@@ -34,5 +31,14 @@ export const registerUser = async (input: {
   } catch (error) {
     console.error(error);
     throw new GraphQLError("Error creating user");
+  }    
+};
+export const removeUser = async (email: string) => {
+  try {
+    const result = await prisma.user.delete({ where: { email } });
+    return result;
+  } catch (error) {
+    console.error(error);
+    throw new GraphQLError("Error removing user");
   }
 };

@@ -1,8 +1,12 @@
-import { registerUser } from "@/services/user-service";
+import { registerUser, removeUser } from "@/services/user-service";
 
 export const userMutations = {
   registerUser: (
     _: unknown,
-    { input }: { input: { name: string; surname: string; email: string; password: string, country: string } }
+    { input }: { input: { email: string; password: string } }
   ) => registerUser(input),
+  removeUser: async (
+    _: unknown,
+    { email }: { email: string }
+  ) => removeUser(email),
 };
